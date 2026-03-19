@@ -1,25 +1,10 @@
 import { kickloadFetch } from "../lib/kickloadClient.js";
-import type { KickLoadConfig } from "../requestContext.js";
-
-interface GenerateTestPlanArgs {
-    prompt: string;
-}
-
-interface GenerateTestPlanApiResponse {
-    status: string;
-    jmx_filename?: string;
-    message?: string;
-}
-
-interface ToolTextContent {
-    type: "text";
-    text: string;
-}
-
-interface ToolResult {
-    content: ToolTextContent[];
-    isError?: boolean;
-}
+import type {
+    GenerateTestPlanArgs,
+    GenerateTestPlanApiResponse,
+    ToolResult,
+    KickLoadConfig,
+} from "../types.js";
 
 export async function generateTestPlan(
     args: GenerateTestPlanArgs,

@@ -1,31 +1,10 @@
 import { kickloadFetch } from "../lib/kickloadClient.js";
-import type { KickLoadConfig } from "../requestContext.js";
-
-interface RunLoadTestArgs {
-    jmx_filename: string;
-    num_threads?: number;
-    ramp_time?: number;
-    duration?: number;
-    loop_count?: number;
-    startup_delay?: number;
-    specify_thread_lifetime?: boolean;
-}
-
-interface RunLoadTestApiResponse {
-    status: string;
-    task_id?: string;
-    message?: string;
-}
-
-interface ToolTextContent {
-    type: "text";
-    text: string;
-}
-
-interface ToolResult {
-    content: ToolTextContent[];
-    isError?: boolean;
-}
+import type {
+    RunLoadTestArgs,
+    RunLoadTestApiResponse,
+    ToolResult,
+    KickLoadConfig,
+} from "../types.js";
 
 export async function runLoadTest(
     args: RunLoadTestArgs,

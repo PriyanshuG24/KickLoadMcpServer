@@ -61,7 +61,7 @@ function buildServer(): McpServer {
                 prompt: z
                     .string()
                     .describe(
-                        'Example: "Test POST https://api.example.com/login with 100 users for 60 seconds"',
+                        'Example: "Test POST https://api.example.com/login with 10 users for 60 seconds"',
                     ),
             }),
         },
@@ -107,13 +107,11 @@ function buildServer(): McpServer {
         "get_results",
         {
             description:
-                "Poll task status until complete, then analyze the JTL results. Optionally validate thresholds.",
+                "Poll task status until complete, then analyze the JTL results. Validate thresholds.",
             inputSchema: z.object({
                 task_id: z.string(),
                 thresholds: z
                     .object({
-                        p95_ms: z.number().optional(),
-                        p99_ms: z.number().optional(),
                         error_rate_pct: z.number().optional(),
                         min_throughput_rps: z.number().optional(),
                     })

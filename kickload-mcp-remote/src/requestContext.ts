@@ -1,10 +1,7 @@
 import type { Request } from "express";
 import { AsyncLocalStorage } from "node:async_hooks";
 import config from "./config/index.js";
-export interface KickLoadConfig {
-    apiToken: string;
-    baseUrl: string;
-}
+import type { KickLoadConfig } from "./types.js";
 
 interface RequestContextStore {
     headers: Request["headers"];

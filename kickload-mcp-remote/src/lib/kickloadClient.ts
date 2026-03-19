@@ -1,4 +1,4 @@
-import type { KickLoadConfig } from "../requestContext.js";
+import { KickLoadConfig } from "../types.js";
 
 type JsonValue =
     | string
@@ -37,9 +37,7 @@ export async function kickloadFetch<T = any>(
         try {
             const body = (await res.json()) as Record<string, JsonValue>;
             errMsg = String(body.message || body.error || errMsg);
-        } catch {
-            // ignore json parse failure
-        }
+        } catch {}
 
         throw new Error(`KickLoad API error [${path}]: ${errMsg}`);
     }
