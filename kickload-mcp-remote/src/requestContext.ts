@@ -30,19 +30,15 @@ export function getKickLoadConfigFromContext(): KickLoadConfig {
     const bearerToken = authHeader.startsWith("Bearer ")
         ? authHeader.slice(7).trim()
         : "";
-
-    const xKickloadToken = headers["x-kickload-api-token"];
     const xApiToken = headers["x-api-token"];
 
-    const apiToken = String(
-        xKickloadToken || xApiToken || bearerToken || "",
-    ).trim();
+    const apiToken = String(xApiToken || bearerToken || "").trim();
 
     const baseUrl = String(config.kickloadBaseUrl).replace(/\/$/, "");
 
     if (!apiToken) {
         throw new Error(
-            "Missing KickLoad API token. Send it as X-KickLoad-Api-Token header.",
+            "Missing KickLoad API token. Send it as X-Api-Token header.",
         );
     }
 
