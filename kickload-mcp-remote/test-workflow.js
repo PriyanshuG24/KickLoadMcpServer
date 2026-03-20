@@ -3,7 +3,7 @@ import { runLoadTest } from './src/tools/runLoadTest.ts';
 import { getResults } from './src/tools/getResults.ts';
 
 const config = {
-    apiToken: 'a4297a9e070078a2f4d0f82f6d67fa22fe3431ad95221b2ffa0545b558af1ae6',
+    apiToken: '1260e01224a5e2861db11ce174808fab3efd7c632fef4053bd2552f56ada7a6a',
     baseUrl: 'https://api.neeyatai.com'
 };
 

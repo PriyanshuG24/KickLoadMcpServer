@@ -26,13 +26,9 @@ export function getKickLoadConfigFromContext(): KickLoadConfig {
     const store = getRequestContext();
     const headers = store?.headers || {};
 
-    const authHeader = headers.authorization || "";
-    const bearerToken = authHeader.startsWith("Bearer ")
-        ? authHeader.slice(7).trim()
-        : "";
     const xApiToken = headers["x-api-token"];
 
-    const apiToken = String(xApiToken || bearerToken || "").trim();
+    const apiToken = String(xApiToken || "").trim();
 
     const baseUrl = String(config.kickloadBaseUrl).replace(/\/$/, "");
 
